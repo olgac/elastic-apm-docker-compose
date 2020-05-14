@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  apm:
+    image: docker.elastic.co/apm/apm-server:7.7.0
+    environment:
+      - apm-server.host=0.0.0.0
+      - apm-server.secret_token=b9c388eb-6275-48c6-a5c5-58f16629ffb2
+      - setup.kibana.host="kibana:5601"
+      - output.elasticsearch.hosts=['http://elasticsearch:9200']
+      - setup.template.enabled=true
+      - logging.to_files=false
+    ports:
+      - 8200:8200
+    networks:
+      - apm
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+  
+networks:
+  apm:
+    external: true

@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  portainer:
+    image: portainer/portainer:1.23.2
+    command: --tlsskipverify --admin-password "$$2y$$05$$9RxsK6QLTJGLRgzwpeITvOVVqhVAXDSM0PKZ70Lx/Wte5JVKUztIW" #qwe12345
+    ports:
+      - 9000:9000
+    networks:
+      - apm
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  apm:
+    external: true
