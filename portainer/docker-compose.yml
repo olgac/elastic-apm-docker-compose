@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   portainer:
-    image: portainer/portainer:1.23.2
+    image: portainer/portainer-ce:2.1.1-alpine
     command: --tlsskipverify --admin-password "$$2y$$05$$9RxsK6QLTJGLRgzwpeITvOVVqhVAXDSM0PKZ70Lx/Wte5JVKUztIW" #qwe12345
     ports:
       - 9000:9000
